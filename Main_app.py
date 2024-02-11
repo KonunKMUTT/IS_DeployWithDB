@@ -26,7 +26,7 @@ def predict_heart_disease(age, impulse, pressure_high, pressure_low, glucose, kc
         })
 
     y_pred_new = model.predict(x_new)
-    return y_pred_new
+    return y_pred_new[0].strip()
 
 # Streamlit app
 def main():
