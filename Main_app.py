@@ -79,6 +79,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-    
-if st.button("Refresh"):
-   st.experimental_rerun()  # Trigger page reload
