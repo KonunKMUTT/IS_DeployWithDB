@@ -77,15 +77,8 @@ def main():
         st.success("New Data is Update To GoogleSheets!")
         st.stop()
         
-    if st.button("Reset"):
-    st.session_state.age = ""
-    st.session_state.impulse = ""
-    st.session_state.pressure_high = ""
-    st.session_state.pressure_low = ""
-    st.session_state.glucose = ""
-    st.session_state.kcm = ""
-    st.session_state.troponin = ""
-    st.session_state.gender = ""  # Reset to default gender
+if st.button("Refresh"):
+    st.experimental_rerun()  # Trigger page reload
 
 if __name__ == '__main__':
     main()
