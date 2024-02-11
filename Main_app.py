@@ -5,6 +5,7 @@ from streamlit_gsheets import GSheetsConnection
 
 conn = st.experimental_connection("gsheets", type=GSheetsConnection)
 
+
 # Load the model
 with open('model.pkl', 'rb') as file:
     model = pickle.load(file)
@@ -78,6 +79,3 @@ def main():
 
         st.success("New Data is Update To GoogleSheets!")
         st.stop()
-
-if __name__ == '__main__':
-    main()
