@@ -76,10 +76,9 @@ def main():
 
         st.success("New Data is Update To GoogleSheets!")
         st.stop()
-        
-if st.button("Refresh"):
-    st.experimental_rerun()  # Trigger page reload
 
 if __name__ == '__main__':
     main()
-
+    
+if st.button("Refresh"):
+   st.experimental_rerun()  # Trigger page reload
