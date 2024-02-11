@@ -4,6 +4,10 @@ import streamlit as st
 from streamlit_gsheets import GSheetsConnection
 
 conn = st.experimental_connection("gsheets", type=GSheetsConnection)
+ext_data = conn.read(wroksheet="Sheet1", usecols=list(range(10)), ttl=5)
+ext_data = ext_data.dropna(how="all")
+
+st.dataframe(ext_data)
 
 # Load the model
 with open('model.pkl', 'rb') as file:
@@ -72,7 +76,7 @@ def main():
         'class' : [result]
         })
 
-        update_df = pd.concat([new_data], ignore_index=True)
+        update_df = pd.concat([ext_data], [new_data], ignore_index=True)
         conn.update(worksheet="Sheet1", data=update_df)
 
         st.success("New Data is Update To GoogleSheets!")
