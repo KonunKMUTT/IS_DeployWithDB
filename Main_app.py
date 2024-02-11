@@ -13,7 +13,7 @@ with open('model.pkl', 'rb') as file:
 def predict_heart_disease(age, impulse, pressure_high, pressure_low, glucose, kcm, troponin, female, male):
     x_new = pd.DataFrame({
         'age': [age],
-        'impulse': [impulse],
+        'impluse': [impulse],
         'pressurehight': [pressure_high],
         'pressurelow': [pressure_low],
         'glucose': [glucose],
@@ -24,7 +24,7 @@ def predict_heart_disease(age, impulse, pressure_high, pressure_low, glucose, kc
         })
 
     y_pred_new = model.predict(x_new)
-    return "positive" if y_pred_new[0] else "negative"  # Assuming the model returns boolean values
+    return y_pred_new
 
 # Streamlit app
 def main():
@@ -48,6 +48,7 @@ def main():
         male = 1
        
     if st.button("Predict"):
+      
         result = predict_heart_disease(age, impulse, pressure_high, pressure_low, glucose, kcm, troponin, female, male)
         
         # Set color based on the result
@@ -61,7 +62,7 @@ def main():
 
         new_data = pd.DataFrame({
         'age': [age],
-        'impulse': [impulse],
+        'impluse': [impulse],
         'pressurehight': [pressure_high],
         'pressurelow': [pressure_low],
         'glucose': [glucose],
@@ -79,4 +80,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
