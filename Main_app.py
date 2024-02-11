@@ -10,7 +10,7 @@ ext_data = ext_data.dropna(how="all")
 m = st.markdown("""
 <style>
 div.stButton > button:first-child {
-    background-color: #ADD8E6;
+    background-color: #6879D0;
 }
 </style>""", unsafe_allow_html=True)
 
