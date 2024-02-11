@@ -79,3 +79,16 @@ def main():
 
 if __name__ == '__main__':
     main()
+
+def reset_inputs():
+    st.session_state.age = ""
+    st.session_state.impulse = ""
+    st.session_state.pressure_high = ""
+    st.session_state.pressure_low = ""
+    st.session_state.glucose = ""
+    st.session_state.kcm = ""
+    st.session_state.troponin = ""
+    st.session_state.gender = "Female"  # Reset to default gender
+
+if st.button("Reset"):
+    reset_inputs()
