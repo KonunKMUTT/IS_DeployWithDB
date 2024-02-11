@@ -79,3 +79,6 @@ def main():
 
         st.success("New Data is Update To GoogleSheets!")
         st.stop()
+
+if __name__ == '__main__':
+    main()
