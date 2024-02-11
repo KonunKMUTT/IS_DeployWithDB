@@ -5,7 +5,6 @@ from streamlit_gsheets import GSheetsConnection
 
 conn = st.experimental_connection("gsheets", type=GSheetsConnection)
 
-
 # Load the model
 with open('model.pkl', 'rb') as file:
     model = pickle.load(file)
@@ -47,9 +46,19 @@ def main():
     else:
         female = 0
         male = 1
+    
+    # Button to clear inputs
+    if st.button("Clear Inputs"):
+        st.text_input("Enter age:", value="")
+        st.text_input("Enter impulse:", value="")
+        st.text_input("Enter high blood pressure:", value="")
+        st.text_input("Enter low blood pressure:", value="")
+        st.text_input("Enter glucose level:", value="")
+        st.text_input("Enter KCM:", value="")
+        st.text_input("Enter troponin level:", value="")
+        st.selectbox("Select gender", ["Female", "Male"], index=0)
        
     if st.button("Predict"):
-      
         result = predict_heart_disease(age, impulse, pressure_high, pressure_low, glucose, kcm, troponin, female, male)
         
         # Set color based on the result
