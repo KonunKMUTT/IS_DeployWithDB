@@ -48,13 +48,8 @@ def main():
     else:
         female = 0
         male = 1
-
-    # Center-align and expand size of the button
-    st.markdown('<div style="display:flex; justify-content:center;">'
-                '<button style="width:200px; height:50px;">Predict</button>'
-                '</div>', unsafe_allow_html=True)
            
-    if st.button("Predict"):
+    if st.button('<p style="text-align:center; font-weight:bold; font-size:30px;">Predict</p>', unsafe_allow_html=True):
         result = predict_heart_disease(age, impulse, pressure_high, pressure_low, glucose, kcm, troponin, female, male)
         # Set color based on the result
         color = "red" if result == "positive" else "green"  # Adjust this condition based on your model's output
