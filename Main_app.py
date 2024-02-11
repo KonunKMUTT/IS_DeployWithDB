@@ -4,6 +4,7 @@ import streamlit as st
 from streamlit_gsheets import GSheetsConnection
 
 conn = st.experimental_connection("gsheets", type=GSheetsConnection)
+update_df = pd.DataFrame()  # Initialize the DataFrame outside of the button click condition
 
 # Load the model
 with open('model.pkl', 'rb') as file:
@@ -72,10 +73,9 @@ def main():
         'male': [male],
         'class' : [result]
         })
-
+        
         # Append new data row to the DataFrame
         update_df = update_df.append(new_data, ignore_index=True)
-        conn.update(worksheet="Sheet1", data=update_df)
         st.success("New Data is Update To GoogleSheets!")
 
 if __name__ == '__main__':
