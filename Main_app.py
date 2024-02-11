@@ -74,7 +74,7 @@ def main():
         })
 
         update_df = pd.concat([new_data], ignore_index=True)
-        conn.update(worksheet.append_row="Sheet1", data=update_df)
+        conn.update(worksheet="Sheet1", append_row=update_df)
 
         st.success("New Data is Update To GoogleSheets!")
 
