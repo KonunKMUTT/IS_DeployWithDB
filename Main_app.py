@@ -75,7 +75,11 @@ def main():
         conn.update(worksheet="Sheet1", data=update_df)
 
         st.success("New Data is Update To GoogleSheets!")
-        st.stop()
+        
+    if st.button("Refresh"):
+        st.experimental_rerun()  # Trigger page reload
+        st.info("App refreshed!")
+
 
 if __name__ == '__main__':
     main()
