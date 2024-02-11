@@ -51,19 +51,10 @@ def main():
            
     if st.button("Predict"):
         result = predict_heart_disease(age, impulse, pressure_high, pressure_low, glucose, kcm, troponin, female, male)
-        
-        # If statement for prediction result
-        if result == "positive":
-        prediction_text = "positive"
-        color = "red"
-        else:
-        prediction_text = "negative"
-        color = "green"
-
+        # Set color based on the result
+        color = "red" if result == "positive" else "green"  # Adjust this condition based on your model's output
         # Apply styling with HTML
-        styled_result = f'<p style="color:{color}; font-size:20px; text-align:center; font-weight:bold; background-color:#4B4A54; padding:10px; border-radius: 15px;">{prediction_text}</p>'
-
-        
+        styled_result = f'<p style="color:{color}; font-size:20px; text-align:center; font-weight:bold; background-color:#4B4A54; padding:10px; border-radius: 15px;">{result}</p>'
         # Display the styled result
         st.markdown(styled_result, unsafe_allow_html=True)
 
