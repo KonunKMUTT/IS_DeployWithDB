@@ -73,9 +73,9 @@ def main():
         'class' : [result]
         })
 
-        update_df.append(new_data, ignore_index=True)
+        # Append new data row to the DataFrame
+        update_df = update_df.append(new_data, ignore_index=True)
         conn.update(worksheet="Sheet1", data=update_df)
-
         st.success("New Data is Update To GoogleSheets!")
 
 if __name__ == '__main__':
