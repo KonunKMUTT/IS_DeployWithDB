@@ -3,6 +3,7 @@ import pandas as pd
 import streamlit as st
 from streamlit_gsheets import GSheetsConnection
 import matplotlib.pyplot as plt
+import seaborn as sns
 
 conn = st.experimental_connection("gsheets", type=GSheetsConnection)
 ext_data = conn.read(wroksheet="Sheet1", usecols=list(range(10)), ttl=5)
