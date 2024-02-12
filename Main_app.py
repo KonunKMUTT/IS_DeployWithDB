@@ -1,7 +1,6 @@
 import pickle
 import pandas as pd
 import streamlit as st
-import matplotlib.pyplot as plt
 from streamlit_gsheets import GSheetsConnection
 import numpy as np
 
@@ -84,26 +83,6 @@ def main():
         conn.update(worksheet="Sheet1", data=update_df)
 
         st.success("New Data is Update To GoogleSheets!")
-
-        # ... other code (prediction, data update)
-
-    if st.button("Show Class Distribution"):
-        female_count = ext_data["class"].value_counts()["positive"]
-        male_count = ext_data["class"].value_counts()["negative"]
-        total_count = female_count + male_count
-        female_pct = (female_count / total_count) * 100
-        male_pct = (male_count / total_count) * 100
-
-        labels = ["Female", "Male"]
-        sizes = [female_pct, male_pct]
-        colors = ["lightblue", "lightgreen"]
-        
-        plt.figure(figsize=(6, 6))
-        plt.pie(sizes, labels=labels, autopct="%1.1f%%", startangle=90, colors=colors)
-        plt.title("Class Distribution")
-        plt.axis("equal")  # Equal aspect ratio for a circular pie chart
-        st.pyplot()
-
         
 if __name__ == '__main__':
     main()
