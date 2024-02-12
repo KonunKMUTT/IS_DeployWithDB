@@ -3,6 +3,7 @@ import pandas as pd
 import streamlit as st
 from streamlit_gsheets import GSheetsConnection
 import numpy as np
+import matplotlib.pyplot as plt
 
 conn = st.experimental_connection("gsheets", type=GSheetsConnection)
 ext_data = conn.read(wroksheet="Sheet1", usecols=list(range(10)), ttl=5)
@@ -107,7 +108,3 @@ def main():
         
 if __name__ == '__main__':
     main()
-
-import pandas as pd
-import streamlit as st
-import matplotlib.pyplot as plt
