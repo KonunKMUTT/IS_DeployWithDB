@@ -87,22 +87,22 @@ def main():
         # ... other code (prediction, data update)
 
     if st.button("Show Class Distribution"):
-    female_count = ext_data["class"].value_counts()["positive"]
-    male_count = ext_data["class"].value_counts()["negative"]
-    total_count = female_count + male_count
-    female_pct = (female_count / total_count) * 100
-    male_pct = (male_count / total_count) * 100
+        female_count = ext_data["class"].value_counts()["positive"]
+        male_count = ext_data["class"].value_counts()["negative"]
+        total_count = female_count + male_count
+        female_pct = (female_count / total_count) * 100
+        male_pct = (male_count / total_count) * 100
 
-    labels = ["Female", "Male"]
-    sizes = [female_pct, male_pct]
-    colors = ["lightblue", "lightgreen"]
+        labels = ["Female", "Male"]
+        sizes = [female_pct, male_pct]
+        colors = ["lightblue", "lightgreen"]
 
-    plt.figure(figsize=(6, 6))
-    plt.pie(sizes, labels=labels, autopct="%1.1f%%", startangle=90, colors=colors)
-    plt.title("Class Distribution")
-    plt.axis("equal")  # Equal aspect ratio for a circular pie chart
+        plt.figure(figsize=(6, 6))
+        plt.pie(sizes, labels=labels, autopct="%1.1f%%", startangle=90, colors=colors)
+        plt.title("Class Distribution")
+        plt.axis("equal")  # Equal aspect ratio for a circular pie chart
 
-    st.pyplot()
+        st.pyplot()
 
         
 if __name__ == '__main__':
