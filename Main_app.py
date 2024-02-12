@@ -83,17 +83,10 @@ def main():
         conn.update(worksheet="Sheet1", data=update_df)
 
         st.success("New Data is Update To GoogleSheets!")
-        
-if __name__ == '__main__':
-    main()
 
-import pandas as pd
-import streamlit as st
-import matplotlib.pyplot as plt
+        # ... other code (prediction, data update)
 
-# ... other code (prediction, data update)
-
-if st.button("Show Class Distribution"):
+    if st.button("Show Class Distribution"):
     female_count = ext_data["class"].value_counts()["positive"]
     male_count = ext_data["class"].value_counts()["negative"]
     total_count = female_count + male_count
@@ -110,3 +103,11 @@ if st.button("Show Class Distribution"):
     plt.axis("equal")  # Equal aspect ratio for a circular pie chart
 
     st.pyplot()
+
+        
+if __name__ == '__main__':
+    main()
+
+import pandas as pd
+import streamlit as st
+import matplotlib.pyplot as plt
