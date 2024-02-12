@@ -2,7 +2,6 @@ import pickle
 import pandas as pd
 import streamlit as st
 from streamlit_gsheets import GSheetsConnection
-import seaborn as sns
 import numpy as np
 
 conn = st.experimental_connection("gsheets", type=GSheetsConnection)
