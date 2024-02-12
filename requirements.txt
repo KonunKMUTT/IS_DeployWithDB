@@ -1,7 +1,6 @@
-streamlit
 numpy
-matplotlib
-seaborn
 pandas
+matplotlib
+streamlit
 st-gsheets-connection
 scikit-learn==1.2.2
