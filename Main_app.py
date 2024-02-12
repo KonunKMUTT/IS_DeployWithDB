@@ -1,6 +1,7 @@
 import pickle
 import pandas as pd
 import streamlit as st
+import matplotlib.pyplot as plt
 from streamlit_gsheets import GSheetsConnection
 import numpy as np
 
