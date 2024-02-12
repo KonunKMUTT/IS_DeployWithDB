@@ -98,11 +98,6 @@ def main():
         sizes = [female_pct, male_pct]
         colors = ["lightblue", "lightgreen"]
 
-        plt.figure(figsize=(6, 6))
-        plt.pie(sizes, labels=labels, autopct="%1.1f%%", startangle=90, colors=colors)
-        plt.title("Class Distribution")
-        plt.axis("equal")  # Equal aspect ratio for a circular pie chart
-
         st.pyplot()
 
         
