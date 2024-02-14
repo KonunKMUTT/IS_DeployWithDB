@@ -12,13 +12,6 @@ conn = st.connection("gsheets", type=GSheetsConnection)
 ext_data = conn.read(wroksheet="Sheet1", usecols=list(range(10)), ttl=5)
 ext_data = ext_data.dropna(how="all")
 
-m = st.markdown("""
-<style>
-div.stButton > button:first-child {
-    background-color: #6879D0;
-}
-</style>""", unsafe_allow_html=True)
-
 # Load the model
 with open('model.pkl', 'rb') as file:
     model = pickle.load(file)
@@ -103,7 +96,7 @@ if st.button("Show Class Distribution"):
 
         # สร้างกราฟ Count Plot
         fig, ax = plt.subplots(figsize=(6, 6))
-        sns.countplot(y="female", hue="class", data=ext_data, palette="hls", ax=ax)
+        sns.countplot(y="female", hue="class", data=ext_data, ax=ax)
 
         # เปลี่ยนชื่อแกน x
         ax.set_ylabel("Gender")
