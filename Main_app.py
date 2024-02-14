@@ -88,7 +88,10 @@ def main():
 
         st.success("New Data is Update To GoogleSheets!")
         
-    if st.button("Show Class Distribution"):
+if __name__ == '__main__':
+    main()
+
+if st.button("Show Class Distribution"):
         # เปลี่ยน 0 เป็น "Male" และ 1 เป็น "Female"
         ext_data["female"] = ext_data["female"].replace({0: "Male", 1: "Female"})
 
@@ -100,13 +103,10 @@ def main():
 
         # สร้างกราฟ Count Plot
         fig, ax = plt.subplots(figsize=(6, 6))
-        sns.countplot(x="female", hue="class", data=ext_data, palette="hls", ax=ax)
+        sns.countplot(y="female", hue="class", data=ext_data, palette="hls", ax=ax)
 
         # เปลี่ยนชื่อแกน x
         ax.set_xlabel("Gender")
 
         # แสดงกราฟ
         st.pyplot(fig)
-        
-if __name__ == '__main__':
-    main()
