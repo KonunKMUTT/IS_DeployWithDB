@@ -84,22 +84,22 @@ def main():
 if __name__ == '__main__':
     main()
 
-if st.button("Show Class Distribution"):
-        # เปลี่ยน 0 เป็น "Male" และ 1 เป็น "Female"
+if st.toggle("Show Distribution by Gender"):
+        # Change 0 as "Male" and 1 as "Female"
         ext_data["female"] = ext_data["female"].replace({0: "Male", 1: "Female"})
 
-        # คำนวณเปอร์เซ็นไทล์
+        # Calculate %
         total_female = ext_data[ext_data["female"] == "Female"].shape[0]
         total_male = ext_data[ext_data["female"] == "Male"].shape[0]
         ext_data["Female %"] = (ext_data["female"] == "Female") * (100 / total_female)
         ext_data["Male %"] = (ext_data["female"] == "Male") * (100 / total_male)
 
-        # สร้างกราฟ Count Plot
+        # Create Graph Count Plot
         fig, ax = plt.subplots(figsize=(6, 6))
         sns.countplot(y="female", hue="class", data=ext_data, ax=ax)
 
-        # เปลี่ยนชื่อแกน x
+        # Change labels name
         ax.set_ylabel("Gender")
 
-        # แสดงกราฟ
+        # Shown Graph
         st.pyplot(fig)
