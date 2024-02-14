@@ -8,7 +8,7 @@ import matplotlib.patches as mpatches
 import numpy as np
 import seaborn as sns
 
-conn = st.experimental_connection("gsheets", type=GSheetsConnection)
+conn = st.connection("gsheets", type=GSheetsConnection)
 ext_data = conn.read(wroksheet="Sheet1", usecols=list(range(10)), ttl=5)
 ext_data = ext_data.dropna(how="all")
 
@@ -106,7 +106,7 @@ if st.button("Show Class Distribution"):
         sns.countplot(y="female", hue="class", data=ext_data, palette="hls", ax=ax)
 
         # เปลี่ยนชื่อแกน x
-        ax.set_xlabel("Gender")
+        ax.set_ylabel("Gender")
 
         # แสดงกราฟ
         st.pyplot(fig)
