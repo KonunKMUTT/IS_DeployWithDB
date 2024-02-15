@@ -84,22 +84,24 @@ def main():
 if __name__ == '__main__':
     main()
 
-if st.toggle("Show Distribution by Gender"):
-        # Change 0 as "Male" and 1 as "Female"
-        ext_data["female"] = ext_data["female"].replace({0: "Male", 1: "Female"})
+if st.toggle("Show Distribution By Gender"):
+  
+    # เปลี่ยน 0 เป็น "Male" และ 1 เป็น "Female"
+    ext_data["female"] = ext_data["female"].replace({0: "Male", 1: "Female"})
 
-        # Calculate %
-        total_female = ext_data[ext_data["female"] == "Female"].shape[0]
-        total_male = ext_data[ext_data["female"] == "Male"].shape[0]
-        ext_data["Female %"] = (ext_data["female"] == "Female") * (100 / total_female)
-        ext_data["Male %"] = (ext_data["female"] == "Male") * (100 / total_male)
+    # Create countplot
+    fig, ax = plt.subplots(figsize=(6, 6))
+    sns.countplot(x="female", hue="class", data=ext_data, ax=ax)
 
-        # Create Graph Count Plot
-        fig, ax = plt.subplots(figsize=(6, 6))
-        sns.countplot(y="female", hue="class", data=ext_data, ax=ax)
+    # Display Plotly figure in Streamlit
+    st.pyplot(fig)
 
-        # Change labels name
-        ax.set_ylabel("Gender")
+if st.toggle("Show Distribution By Age"):
 
-        # Shown Graph
-        st.pyplot(fig)
+    fig, ax = plt.subplots(figsize=(8, 4))
+    sns.histplot(data=ext_data, x="age", hue="class")
+    st.pyplot(fig)
+
+    fig, ax = plt.subplots(figsize=(4, 2))
+    sns.boxplot(data=ext_data, x="age", y="class")
+    st.pyplot(fig)
