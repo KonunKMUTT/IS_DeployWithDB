@@ -90,7 +90,7 @@ if st.toggle("Show Distribution By Gender"):
     ext_data["female"] = ext_data["female"].replace({0: "Male", 1: "Female"})
 
     # Create countplot
-    fig, ax = plt.subplots(figsize=(6, 6))
+    fig, ax = plt.subplots(figsize=(4, 4))
     sns.countplot(x="female", hue="class", data=ext_data, ax=ax)
 
     # Display Plotly figure in Streamlit
