@@ -55,16 +55,51 @@ def main():
         female = 0
         male = 1
            
+    # if st.button("Predict"):
+    #     if not age or not impulse or not pressure_high or not pressure_low or not glucose or not kcm or not troponin:
+    #         st.warning("Please Ensure all feilds are filled.")
+    #         st.stop()
+    #     else:
+    #     result = predict_heart_disease(age, impulse, pressure_high, pressure_low, glucose, kcm, troponin, female, male)
+    #     # Set color based on the result
+    #     color = "red" if result == "positive" else "green"  # Adjust this condition based on your model's output
+    #     # Apply styling with HTML
+    #     styled_result = f'<p style="color:{color}; font-size:20px; text-align:center; font-weight:bold; background-color:#4B4A54; padding:10px; border-radius: 15px;">{result}</p>'
+    #     # Display the styled result
+    #     st.markdown(styled_result, unsafe_allow_html=True)
+
+    #     new_data = pd.DataFrame({
+    #         'age': [age],
+    #         'impluse': [impulse],
+    #         'pressurehight': [pressure_high],
+    #         'pressurelow': [pressure_low],
+    #         'glucose': [glucose],
+    #         'kcm': [kcm],
+    #         'troponin': [troponin],
+    #         'female': [female],
+    #         'male': [male],
+    #         'class' : [result]
+    #     })
+
+    #     update_df = pd.concat([ext_data, new_data], ignore_index=True)
+    #     conn.update(worksheet="Sheet1", data=update_df)
+
+    #     st.success("New Data is Update To GoogleSheets!")
+    #     st.stop()
+
     if st.button("Predict"):
-        if not age or not impulse or not pressure_high or not pressure_low or not glucose or not kcm or not troponin:
-            st.warning("Please Ensure all feilds are filled.")
-            st.stop()
-        else:
+    if not age or not impulse or not pressure_high or not pressure_low or not glucose or not kcm or not troponin:
+        st.warning("Please Ensure all feilds are filled.")
+        st.stop()
+    else:
         result = predict_heart_disease(age, impulse, pressure_high, pressure_low, glucose, kcm, troponin, female, male)
+
         # Set color based on the result
         color = "red" if result == "positive" else "green"  # Adjust this condition based on your model's output
+
         # Apply styling with HTML
         styled_result = f'<p style="color:{color}; font-size:20px; text-align:center; font-weight:bold; background-color:#4B4A54; padding:10px; border-radius: 15px;">{result}</p>'
+
         # Display the styled result
         st.markdown(styled_result, unsafe_allow_html=True)
 
@@ -78,7 +113,7 @@ def main():
             'troponin': [troponin],
             'female': [female],
             'male': [male],
-            'class' : [result]
+            'class': [result]
         })
 
         update_df = pd.concat([ext_data, new_data], ignore_index=True)
@@ -86,6 +121,7 @@ def main():
 
         st.success("New Data is Update To GoogleSheets!")
         st.stop()
+
         
 if __name__ == '__main__':
     main()
