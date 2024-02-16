@@ -53,7 +53,7 @@ def main():
     else:
         female = 0
         male = 1
-           
+    
     if st.button("Predict"):
         if not age or not impulse or not pressure_high or not pressure_low or not glucose or not kcm or not troponin:
             st.warning("Please Ensure All fields are filled.")
