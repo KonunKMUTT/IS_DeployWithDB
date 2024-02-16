@@ -35,7 +35,8 @@ def predict_heart_disease(age, impulse, pressure_high, pressure_low, glucose, kc
 
 # Streamlit app
 def main():
-    st.markdown('<p style="text-align:center; font-weight:bold; font-size:30px;">Heart Disease Prediction App</p>', unsafe_allow_html=True)
+    st.title('<p style="text-align:center; font-weight:bold; font-size:30px;">Heart Disease Prediction App</p>', unsafe_allow_html=True)
+    st.markdown("Enter the data to prediction, Please Ensure all feilds are filled.")
 
     age = st.text_input("Enter age:")
     impulse = st.text_input("Enter impulse:")
