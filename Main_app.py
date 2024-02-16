@@ -56,6 +56,10 @@ def main():
         male = 1
            
     if st.button("Predict"):
+        if not age or not impulse or not pressure_high or not pressure_low or not glucose or not kcm or not troponin:
+            st.warning("Please Ensure all feilds are filled.")
+            st.stop()
+        else:
         result = predict_heart_disease(age, impulse, pressure_high, pressure_low, glucose, kcm, troponin, female, male)
         # Set color based on the result
         color = "red" if result == "positive" else "green"  # Adjust this condition based on your model's output
@@ -64,8 +68,6 @@ def main():
         # Display the styled result
         st.markdown(styled_result, unsafe_allow_html=True)
 
-    if st.button("Save New Data"):
-        
         new_data = pd.DataFrame({
             'age': [age],
             'impluse': [impulse],
