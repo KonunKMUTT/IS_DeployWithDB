@@ -67,6 +67,8 @@ def main():
         # Display the styled result
         st.markdown(styled_result, unsafe_allow_html=True)
 
+    if st.button("Save New Data"):
+        
         new_data = pd.DataFrame({
             'age': [age],
             'impluse': [impulse],
