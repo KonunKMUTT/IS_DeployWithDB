@@ -42,7 +42,7 @@ def main():
     pressure_high = st.text_input("Enter high blood pressure:")
     pressure_low = st.text_input("Enter low blood pressure:")
     glucose = st.text_input("Enter glucose level:")
-    kcm = st.text_input("Enter CK-MB (KCM):")
+    kcm = st.text_input("Enter KCM:")
     troponin = st.text_input("Enter troponin level:")
     gender = st.selectbox("Select gender", ["Female", "Male"])
 
@@ -53,12 +53,8 @@ def main():
     else:
         female = 0
         male = 1
-    
+           
     if st.button("Predict"):
-        if not age or not impulse or not pressure_high or not pressure_low or not glucose or not kcm or not troponin:
-            st.warning("Please Ensure All fields are filled.")
-            st.stop()
-        else:
         result = predict_heart_disease(age, impulse, pressure_high, pressure_low, glucose, kcm, troponin, female, male)
         # Set color based on the result
         color = "red" if result == "positive" else "green"  # Adjust this condition based on your model's output
