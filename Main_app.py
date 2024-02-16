@@ -42,7 +42,7 @@ def main():
     pressure_high = st.text_input("Enter high blood pressure:")
     pressure_low = st.text_input("Enter low blood pressure:")
     glucose = st.text_input("Enter glucose level:")
-    kcm = st.text_input("Enter KCM:")
+    kcm = st.text_input("Enter CK-MB (KCM):")
     troponin = st.text_input("Enter troponin level:")
     gender = st.selectbox("Select gender", ["Female", "Male"])
 
@@ -54,7 +54,11 @@ def main():
         female = 0
         male = 1
            
-    if st.button("Predict",align="right"):
+    if st.button("Predict"):
+        if not age or not impulse or not pressure_high or not pressure_low or not glucose or not kcm or not troponin:
+            st.warning("Please Ensure All fields are filled.")
+            st.stop()
+        else:
         result = predict_heart_disease(age, impulse, pressure_high, pressure_low, glucose, kcm, troponin, female, male)
         # Set color based on the result
         color = "red" if result == "positive" else "green"  # Adjust this condition based on your model's output
@@ -64,22 +68,23 @@ def main():
         st.markdown(styled_result, unsafe_allow_html=True)
 
         new_data = pd.DataFrame({
-        'age': [age],
-        'impluse': [impulse],
-        'pressurehight': [pressure_high],
-        'pressurelow': [pressure_low],
-        'glucose': [glucose],
-        'kcm': [kcm],
-        'troponin': [troponin],
-        'female': [female],
-        'male': [male],
-        'class' : [result]
+            'age': [age],
+            'impluse': [impulse],
+            'pressurehight': [pressure_high],
+            'pressurelow': [pressure_low],
+            'glucose': [glucose],
+            'kcm': [kcm],
+            'troponin': [troponin],
+            'female': [female],
+            'male': [male],
+            'class' : [result]
         })
 
         update_df = pd.concat([ext_data, new_data], ignore_index=True)
         conn.update(worksheet="Sheet1", data=update_df)
 
         st.success("New Data is Update To GoogleSheets!")
+        st.stop()
         
 if __name__ == '__main__':
     main()
