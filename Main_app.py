@@ -38,7 +38,7 @@ def main():
     st.markdown('<p style="text-align:center; font-weight:bold; font-size:30px;">Heart Disease Prediction App</p>', unsafe_allow_html=True)
     st.markdown('<p style="text-align:center;">Enter the data to prediction, Please Ensure all feilds are filled.</p>', unsafe_allow_html=True)
 
-    age = st.text_input("Enter age: (Age range 0 to 150)", 0, 150)
+    age = st.number_input("Enter age: (Age range 0 to 150)", 0, 150)
     impulse = st.slider("Enter impulse: (Impulse range 10 to 200)", 10, 200)
     pressure_high = st.slider("Enter high blood pressure: (High blood pressure range 70 to 200)", 70, 200)
     pressure_low = st.slider("Enter low blood pressure: (High blood pressure range 40 to 120)", 40, 120)
