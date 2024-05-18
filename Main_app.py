@@ -38,13 +38,13 @@ def main():
     st.markdown('<p style="text-align:center; font-weight:bold; font-size:30px;">Heart Disease Prediction App</p>', unsafe_allow_html=True)
     st.markdown('<p style="text-align:center;">Enter the data to prediction, Please Ensure all feilds are filled.</p>', unsafe_allow_html=True)
 
-    age = st.text_input("Enter age:")
-    impulse = st.text_input("Enter impulse:")
-    pressure_high = st.text_input("Enter high blood pressure:")
-    pressure_low = st.text_input("Enter low blood pressure:")
-    glucose = st.text_input("Enter glucose level:")
-    kcm = st.text_input("Enter CK-MB (KCM):")
-    troponin = st.text_input("Enter troponin level:")
+    age = st.text_input("Enter age:", 0, 150)
+    impulse = st.slider("Enter impulse:", 10, 200)
+    pressure_high = st.slider("Enter high blood pressure:", 70, 200)
+    pressure_low = st.slider("Enter low blood pressure:", 40, 120)
+    glucose = st.text_input("Enter glucose level:", 1, 900)
+    kcm = st.text_input("Enter CK-MB (KCM):", -7.00, 150.00)
+    troponin = st.text_input("Enter troponin level:", 0.00, 0.014)
     gender = st.selectbox("Select gender", ["Female", "Male"])
 
     # Set gender value based on selection
