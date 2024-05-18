@@ -43,7 +43,7 @@ def main():
     pressure_high = st.slider("Enter high blood pressure:", 70, 200)
     pressure_low = st.slider("Enter low blood pressure:", 40, 120)
     glucose = st.text_input("Enter glucose level:", 1, 900)
-    kcm = st.text_input("Enter CK-MB (KCM):", -7.00, 150.00)
+    kcm = st..slider("Enter CK-MB (KCM):", -7.00, 150.00)
     troponin = st.text_input("Enter troponin level:", 0.00, 0.014)
     gender = st.selectbox("Select gender", ["Female", "Male"])
 
