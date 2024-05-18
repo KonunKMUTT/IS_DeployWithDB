@@ -43,8 +43,8 @@ def main():
     pressure_high = st.slider("Enter high blood pressure: (High blood pressure range 70 to 200)", 70, 200)
     pressure_low = st.slider("Enter low blood pressure: (High blood pressure range 40 to 120)", 40, 120)
     glucose = st.text_input("Enter glucose level: (Glucose range 1 to 900)", 1, 900)
-    kcm = st.number_input("Enter CK-MB (KCM): (CK-MB range -7.00 to 150.00)", -7.00, 150.00)
-    troponin = st.number_input("Enter troponin level: (Troponin range 0.000 to 0.014)", 0.000, 0.014)
+    kcm = st.number_input("Enter CK-MB (KCM): (CK-MB range 0.00 to 10.00)", 0.00, 10.00)
+    troponin = st.number_input("Enter troponin level: (Troponin range 0.000 to 0.040)", 0.000, 0.040)
     gender = st.selectbox("Select gender", ["Female", "Male"])
 
     # Set gender value based on selection
