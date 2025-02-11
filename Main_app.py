@@ -93,7 +93,7 @@ def main():
         
 if __name__ == '__main__':
     main()
-st.markdown('<p style="text-align:center; color:orange; font-size:16px;">This program was developed as a master\'s degree research project under the DBIS Program of School of Information Technology, King Mongkut\'s University.</p><br>',unsafe_allow_html=True)
+
 if st.toggle("Show Distribution By Gender"):
   
     # เปลี่ยน 0 เป็น "Male" และ 1 เป็น "Female"
@@ -115,3 +115,5 @@ if st.toggle("Show Distribution By Age"):
     fig, ax = plt.subplots(figsize=(4, 2))
     sns.boxplot(data=ext_data, x="age", y="class")
     st.pyplot(fig)
+    
+    st.markdown('<p style="text-align:center; color:orange; font-size:16px;">This program was developed as a master\'s degree research project under the DBIS Program of School of Information Technology, King Mongkut\'s University.</p><br>',unsafe_allow_html=True)
