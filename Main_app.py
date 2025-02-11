@@ -55,9 +55,8 @@ def main():
     else:
         female = 0
         male = 1
-    
+     st.markdown('<p style="text-align:center; color:orange; font-size:11px;">This program was developed as a master\'s degree research project under the DBIS Program of School of Information Technology, King Mongkut\'s University.</p><br>',unsafe_allow_html=True)
     if st.button("Predict"):
-       st.markdown('<p style="text-align:center; color:orange; font-size:11px;">This program was developed as a master\'s degree research project under the DBIS Program of School of Information Technology, King Mongkut\'s University.</p><br>',unsafe_allow_html=True)
         if not age or not impulse or not pressure_high or not pressure_low or not glucose or not kcm or not troponin:
             st.warning("Please Ensure all feilds are filled.")
             st.stop()
